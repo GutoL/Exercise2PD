@@ -22,6 +22,8 @@ public class Server1 {
             
             Registry registry = LocateRegistry.createRegistry(2017);
             
+            System.out.println("Server 1 running");
+            
             registry.bind("calculator1", implement1);
             
             

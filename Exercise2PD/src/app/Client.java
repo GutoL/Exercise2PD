@@ -22,8 +22,9 @@ public class Client {
             Registry registry = LocateRegistry.getRegistry("localhost", 2017);// porta do servidor 1
 
             ICalculator calculator = (ICalculator) registry.lookup("calculator1");
-
-            System.out.println(calculator.add(1, 3));
+            
+            System.out.println("Pedi...");
+            System.out.println(calculator.div(2, 2));
 
         } catch (Exception e) {
             System.out.println("Erro cliente");
