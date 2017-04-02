@@ -7,6 +7,7 @@ package app;
 
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
+import java.util.Scanner;
 
 /**
  *
@@ -18,13 +19,21 @@ public class Client {
         
         
         try {
-            
-            Registry registry = LocateRegistry.getRegistry("localhost", 2017);// porta do servidor 1
+            String s = "";
+            while (!s.equals("exit")) {
 
-            ICalculator calculator = (ICalculator) registry.lookup("calculator1");
+              Scanner scanner = new Scanner(System.in);
+              
+              System.out.println("Digite a operação simples(exemplo:2+2) ou 'exit' para sair:");
+              s = scanner.nextLine();
+              
+              if(!s.equals("exit")){
+                CalculatorHelper calculatorHelper = new CalculatorHelper();
+                System.out.println("result: "+calculatorHelper.send(s));
+              }
+              
+            }
             
-            System.out.println("Pedi...");
-            System.out.println(calculator.div(2, 2));
 
         } catch (Exception e) {
             System.out.println("Erro cliente");
