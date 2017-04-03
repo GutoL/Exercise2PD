@@ -30,7 +30,7 @@ public class CalculatorHelper {
                return calculator.add(Float.parseFloat(datas[0]), Float.parseFloat(datas[1]));
             }
         
-            else if(oparation.contains("\\-")){
+            else if(oparation.contains("-")){
                datas = oparation.split("\\-");
                return calculator.sub(Float.parseFloat(datas[0]), Float.parseFloat(datas[1]));
             }
