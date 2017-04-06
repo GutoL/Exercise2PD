@@ -20,6 +20,11 @@ public class Client {
         
         try {
             String s = "";
+            
+            Registry registry = LocateRegistry.getRegistry("localhost", 2017);// porta do servidor 1
+
+            ICalculator calculator = (ICalculator) registry.lookup("calculator1");
+            
             while (!s.equals("exit")) {
 
               Scanner scanner = new Scanner(System.in);
@@ -29,7 +34,7 @@ public class Client {
               
               if(!s.equals("exit")){
                 CalculatorHelper calculatorHelper = new CalculatorHelper();
-                System.out.println("result: "+calculatorHelper.send(s));
+                System.out.println("result: "+calculatorHelper.send(s,calculator));
               }
               
             }

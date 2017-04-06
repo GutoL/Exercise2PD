@@ -14,14 +14,12 @@ import java.rmi.registry.Registry;
  */
 public class CalculatorHelper {
     
-    public float send(String oparation){
+    public float send(String oparation,ICalculator calculator){
         
         String[] datas;
         try {
             
-            Registry registry = LocateRegistry.getRegistry("localhost", 2017);// porta do servidor 1
-
-            ICalculator calculator = (ICalculator) registry.lookup("calculator1");
+            
             //System.out.println(oparation);
             
             if(oparation.contains("+")){
